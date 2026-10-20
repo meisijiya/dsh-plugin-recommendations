@@ -4,6 +4,7 @@
 >
 > 每条安装命令都取自对应上游仓库的 README 或源码原文，本仓库不重写、不简化、不自造命令。
 > 全部 33 条可公开安装，1 条为私有/本地生成（见 [不可公开安装的条目](#不可公开安装的条目)）。
+> 其中 1 条为 🏠 **自研插件**（本仓库维护者开发），独立列在 [自研插件](#self-developed) 分区。
 
 - **机器可读目录**：[`plugins.json`](./plugins.json) —— 单一事实源，README 与安装脚本都从它派生
 - **安装脚本**：[`install.sh`](./install.sh)（bash / Git Bash）、[`install.ps1`](./install.ps1)（Windows PowerShell）
@@ -87,6 +88,7 @@ Windows PowerShell：
 | [联网搜索与知识](#search-knowledge) | 1 | 全网检索、网页读取、站内搜索与知识库能力。 |
 | [外部集成与通信](#integration) | 8 | 浏览器控制、IM 平台、模型来源、跨 Agent 记忆等对外连接。 |
 | [安全与治理](#safety) | 1 | 危险命令拦截、敏感文件保护等执行前安全闸门。 |
+| [🏠 自研插件](#self-developed) | 1 | 本仓库维护者自研，非第三方收录 |
 
 ## 预设分组
 
@@ -228,7 +230,7 @@ Office 文档、表格、演示稿与视频创作能力。
 | **dsh-workbuddy-connect** | [corrinehu/dsh-workbuddy-connect](https://github.com/corrinehu/dsh-workbuddy-connect) | 0.7.9 | MIT | `dsh plugin --profile {profile} add dsh-workbuddy-connect@0.7.9` |
 | **dsh-subusage** | [KouzakiUmi/dsh-subusage](https://github.com/KouzakiUmi/dsh-subusage) | 0.14.2 | MIT | `dsh plugin --profile {profile} add dsh-subusage` |
 | **dsh-pocket** | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) | 2.12.0 | GPL-2.0 | `dsh plugin --profile {profile} add dsh-pocket -w` |
-| **omp-memory-dsh** | [meisijiya/omp-memory-dsh](https://github.com/meisijiya/omp-memory-dsh) | 0.2.0 | MIT | `dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz` |
+| **🏠 omp-memory-dsh** | [meisijiya/omp-memory-dsh](https://github.com/meisijiya/omp-memory-dsh) | 0.2.0 | MIT | `dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz` |
 | **@dsh-external/dsh-clawd-bridge** | _(私有生成，无公开仓库)_ | 0.1.0 🔒 | MIT | `dsh plugin --profile {profile} add link:{clawdGenerationDir}` |
 
 > 详情（含上游其它等价安装方式、注意事项）见 [plugins.json](./plugins.json) 对应条目，或运行 `install.sh --list`。
@@ -243,6 +245,15 @@ Office 文档、表格、演示稿与视频创作能力。
 | **cc-safety-net** | [kenryu42/cc-safety-net](https://github.com/kenryu42/cc-safety-net) | 2.6.16 | MIT | `npx -y @deepseek-ai/dsh plugin --profile {profile} add cc-safety-net@{version}` |
 
 > 详情（含上游其它等价安装方式、注意事项）见 [plugins.json](./plugins.json) 对应条目，或运行 `install.sh --list`。
+
+<a id="self-developed"></a>
+## 🏠 自研插件 · 1 个
+
+以下插件由本仓库维护者自行开发，**不属于第三方收录**。安装命令同样逐字取自其自身仓库的 README 原文，与其它条目口径一致。
+
+| 插件 | 仓库 | 版本 | 上游原生安装命令 |
+| --- | --- | --- | --- |
+| **omp-memory-dsh** | [meisijiya/omp-memory-dsh](https://github.com/meisijiya/omp-memory-dsh) | 0.2.0 | `dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz` |
 
 ## 不可公开安装的条目
 

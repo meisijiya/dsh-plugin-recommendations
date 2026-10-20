@@ -35,10 +35,32 @@ function section(catId) {
     const cmd = '`' + esc(p.upstreamInstall) + '`';
     const license = p.license ?? '—';
     const ver = p.notPublic ? `${p.version} 🔒` : p.version;
-    lines.push(`| **${esc(p.name)}** | ${repoCell} | ${ver} | ${license} | ${cmd} |`);
+    // 自研插件在名称后加 🏠 徽标，与第三方收录区分开
+    const name = p.selfDeveloped ? `🏠 ${esc(p.name)}` : esc(p.name);
+    lines.push(`| **${name}** | ${repoCell} | ${ver} | ${license} | ${cmd} |`);
   }
   lines.push('');
   lines.push('> 详情（含上游其它等价安装方式、注意事项）见 [plugins.json](./plugins.json) 对应条目，或运行 `install.sh --list`。');
+  lines.push('');
+  return lines.join('\n');
+}
+
+/** 自研插件独立分区。 */
+function selfDevelopedSection() {
+  const items = cat.plugins.filter((p) => p.selfDeveloped);
+  if (items.length === 0) return '';
+  const lines = [];
+  lines.push('<a id="self-developed"></a>');
+  lines.push(`## 🏠 自研插件 · ${items.length} 个`);
+  lines.push('');
+  lines.push('以下插件由本仓库维护者自行开发，**不属于第三方收录**。安装命令同样逐字取自其自身仓库的 README 原文，与其它条目口径一致。');
+  lines.push('');
+  lines.push('| 插件 | 仓库 | 版本 | 上游原生安装命令 |');
+  lines.push('| --- | --- | --- | --- |');
+  for (const p of items) {
+    const repoCell = p.repo ? `[${esc(p.repo.replace('https://github.com/', ''))}](${p.repo})` : '—';
+    lines.push(`| **${esc(p.name)}** | ${repoCell} | ${p.version} | \`${esc(p.upstreamInstall)}\` |`);
+  }
   lines.push('');
   return lines.join('\n');
 }
@@ -52,6 +74,11 @@ const catIndex = cat.categories
   })
   .join('\n');
 
+const selfCount = cat.plugins.filter((p) => p.selfDeveloped).length;
+const selfIndexLine = selfCount > 0
+  ? `| [🏠 自研插件](#self-developed) | ${selfCount} | 本仓库维护者自研，非第三方收录 |`
+  : '';
+
 const presetIndex = cat.meta.presets
   .map((p) => `| \`${p.id}\` | ${esc(p.name)} | ${p.pluginIds.length} | ${esc(p.description)} |`)
   .join('\n');
@@ -62,6 +89,7 @@ const readme = `# DSH 插件推荐仓库
 >
 > 每条安装命令都取自对应上游仓库的 README 或源码原文，本仓库不重写、不简化、不自造命令。
 > 全部 ${publicCount} 条可公开安装，${total - publicCount} 条为私有/本地生成（见 [不可公开安装的条目](#不可公开安装的条目)）。
+> 其中 ${selfCount} 条为 🏠 **自研插件**（本仓库维护者开发），独立列在 [自研插件](#self-developed) 分区。
 
 - **机器可读目录**：[\`plugins.json\`](./plugins.json) —— 单一事实源，README 与安装脚本都从它派生
 - **安装脚本**：[\`install.sh\`](./install.sh)（bash / Git Bash）、[\`install.ps1\`](./install.ps1)（Windows PowerShell）
@@ -136,6 +164,7 @@ Windows PowerShell：
 | 分类 | 数量 | 说明 |
 | --- | --- | --- |
 ${catIndex}
+${selfIndexLine}
 
 ## 预设分组
 
@@ -150,6 +179,7 @@ ${presetIndex}
 ## 分类详情
 
 ${cat.categories.map((c) => section(c.id)).join('\n')}
+${selfDevelopedSection()}
 ## 不可公开安装的条目
 
 以下条目**无法从公共渠道安装**（私有包 / 本机 link 生成），安装脚本会自动跳过并说明原因，不给出必然 404 的命令：

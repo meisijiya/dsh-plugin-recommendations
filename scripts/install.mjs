@@ -111,8 +111,9 @@ if (opts.mode === 'list') {
   process.stdout.write(`\n${pad('ID', 26)}${pad('包名', 42)}${pad('版本', 12)}${pad('分类', 22)}仓库\n`);
   process.stdout.write('-'.repeat(120) + '\n');
   for (const p of catalog.plugins) {
+    const mark = p.selfDeveloped ? '  🏠 自研' : p.notPublic ? '  🔒 不可公开安装' : '';
     process.stdout.write(
-      `${pad(p.id, 26)}${pad(p.name, 42)}${pad(p.version, 12)}${pad(p.category, 22)}${p.repo || '(私有生成，无公开仓库)'}\n`,
+      `${pad(p.id, 26)}${pad(p.name, 42)}${pad(p.version, 12)}${pad(p.category, 22)}${p.repo || '(私有生成，无公开仓库)'}${mark}\n`,
     );
   }
   process.stdout.write(`\n${C.dim(`共 ${catalog.plugins.length} 个插件。安装请用 --install。`)}\n\n`);
