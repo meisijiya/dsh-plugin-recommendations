@@ -12,7 +12,13 @@
       "profile": "命令中的 profile 名以 {profile} 占位，实际执行时替换为目标 profile（web / dsh-tui / desktop / headless）。",
       "registry": "部分上游显式指定 --registry=https://registry.npmjs.org/，该参数是上游原文的一部分，不做删减。",
       "notPublic": "notPublic=true 表示该条目无法从公共渠道安装（私有包或本地 link），安装命令仅供本机/内网环境参考。",
-      "selfDeveloped": "selfDeveloped=true 表示该插件由本仓库维护者自研，不是第三方收录；README 与清单中以 🏠 自研 标注。"
+      "selfDeveloped": "selfDeveloped=true 表示该插件由本仓库维护者自研，不是第三方收录；README 与清单中以 🏠 自研 标注。",
+      "verificationLevels": {
+        "repoReachable": "全部 34 条：GitHub API 实测仓库存在、非 404、未归档。",
+        "installCommandSource": "全部 34 条：安装命令逐字取自上游仓库 README 或源码原文。",
+        "releaseAssetDownloaded": "仅 tarball 类条目（omp-memory-dsh）：实测 HTTP 200、42195 字节、解包后 lib/ 相对 import 无悬空、cordis.patch.yml 在包内。npm registry 类条目的包体可下载性由 registry 保证，未逐个重下。",
+        "realInstall": "已实机装成并验证注册进 dsh.profile.bundles：dsh-qa-skills（web 外的隔离 profile）、omp-memory-dsh（全新空 profile，从零下载安装）。其余条目未逐条实装。"
+      }
     },
     "presets": [
       {
@@ -648,7 +654,7 @@
       "description": "DSH 侧适配 omp 的项目级记忆：跨 agent 共享 lessons，零删除红线。",
       "upstreamInstall": "dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz",
       "upstreamInstallFromSource": "dsh plugin --profile {profile} add github:meisijiya/omp-memory-dsh",
-      "installNotes": "上游推荐预构建 tarball（无需本地构建），或用 github: 源码安装（会跑 prepare 自动构建）。",
+      "installNotes": "上游推荐预构建 tarball（无需本地构建），或用 github: 源码安装（会跑 prepare 自动构建）。已实测：v0.2.0 release 资产 omp-memory-dsh-0.2.0.tgz 可下载（42195 字节，HTTP 200），解包后 lib/ 6 个 JS 模块的相对 import 全部可解析、cordis.patch.yml 在包内；该包未发布到 npm（npm view 返回 404），故只能走 tarball 或 github: 方式。",
       "selfDeveloped": true,
       "selfDevelopedNote": "本仓库维护者自研插件，非第三方收录；安装命令同样取自其自身仓库 README 原文。",
       "bundle": true,

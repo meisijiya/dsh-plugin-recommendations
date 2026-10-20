@@ -94,7 +94,7 @@ const readme = `# DSH 插件推荐仓库
 - **机器可读目录**：[\`plugins.json\`](./plugins.json) —— 单一事实源，README 与安装脚本都从它派生
 - **安装脚本**：[\`install.sh\`](./install.sh)（bash / Git Bash）、[\`install.ps1\`](./install.ps1)（Windows PowerShell）
 - **采集口径**：\`dsh plugin --profile web list\`，快照于 ${cat.meta.generatedAt}，DSH ${cat.meta.dshVersion}
-- **仓库地址校验**：全部 ${total} 条均经 GitHub API 实测存在（非 404、未归档）
+- **仓库地址校验**：全部 ${total} 条均经 GitHub API 实测存在（非 404、未归档）；**安装链路按条目分级验证**，详见下方「采集与校验口径」
 
 ---
 
@@ -191,6 +191,19 @@ ${cat.plugins.filter((p) => p.notPublic).map((p) => `| **${esc(p.name)}** | ${p.
 ---
 
 ## 采集与校验口径
+
+验证强度**分级如实标注**，不把"查过仓库"说成"都装过"：
+
+| 校验项 | 覆盖范围 | 手段 |
+| --- | --- | --- |
+| 仓库地址可达 | **全部 ${total} 条** | GitHub API 实测存在、非 404、未归档；同步记录许可证与 star |
+| 安装命令来源 | **全部 ${total} 条** | 逐字取自上游仓库 README / 源码原文，不改写、不自造 |
+| 发布资产可下载 | tarball 类条目 | 实测 HTTP 200、42195 字节；解包后 \`lib/\` 相对 import 无悬空、\`cordis.patch.yml\` 在包内 |
+| 真机装成并注册 bundle | 部分条目 | \`dsh-qa-skills\`（隔离 profile）、\`omp-memory-dsh\`（**全新空 profile 从零下载安装**）——均确认进入 \`dsh.profile.bundles\` |
+
+> 其余条目**未逐条实装**：npm registry 类包的包体可下载性由 registry 保证，本仓库不重复下载全部 ${total} 个包体。
+
+其它约定：
 
 - **清单来源**：\`dsh plugin --profile web list\`（本机 \`web\` profile 实测输出），另含 \`headless\` / \`markettest\` profile 中的本地插件。
 - **上游仓库地址**：取自各插件 \`package.json\` 的 \`repository.url\`，并逐个用 GitHub API 复验存在性、归档状态与许可证。
