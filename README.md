@@ -230,7 +230,7 @@ Office 文档、表格、演示稿与视频创作能力。
 | **dsh-workbuddy-connect** | [corrinehu/dsh-workbuddy-connect](https://github.com/corrinehu/dsh-workbuddy-connect) | 0.7.9 | MIT | `dsh plugin --profile {profile} add dsh-workbuddy-connect@0.7.9` |
 | **dsh-subusage** | [KouzakiUmi/dsh-subusage](https://github.com/KouzakiUmi/dsh-subusage) | 0.14.2 | MIT | `dsh plugin --profile {profile} add dsh-subusage` |
 | **dsh-pocket** | [shaobeichen/dsh-pocket](https://github.com/shaobeichen/dsh-pocket) | 2.12.0 | GPL-2.0 | `dsh plugin --profile {profile} add dsh-pocket -w` |
-| **🏠 omp-memory-dsh** | [meisijiya/omp-memory-dsh](https://github.com/meisijiya/omp-memory-dsh) | 0.2.0 | MIT | `dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz` |
+| **🏠 omp-memory-dsh** | ⛔ 已下架（仓库已删除） | 0.2.0 | MIT | ~~`dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz`~~ **已失效**（2026-10-22 删除仓库；omp 改用 Hindsight 后此插件成为死桥，改用 `dsh-hindsight-memory`） |
 | **@dsh-external/dsh-clawd-bridge** | _(私有生成，无公开仓库)_ | 0.1.0 🔒 | MIT | `dsh plugin --profile {profile} add link:{clawdGenerationDir}` |
 
 > 详情（含上游其它等价安装方式、注意事项）见 [plugins.json](./plugins.json) 对应条目，或运行 `install.sh --list`。
@@ -253,7 +253,7 @@ Office 文档、表格、演示稿与视频创作能力。
 
 | 插件 | 仓库 | 版本 | 上游原生安装命令 |
 | --- | --- | --- | --- |
-| **omp-memory-dsh** | [meisijiya/omp-memory-dsh](https://github.com/meisijiya/omp-memory-dsh) | 0.2.0 | `dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz` |
+| **omp-memory-dsh** | ⛔ 已下架（仓库已删除，本地工作副本仅作参考） | 0.2.0 | **已失效**（2026-10-22 删除远程仓库；omp 侧改用 Hindsight 原生后端后，该插件的读路径恒为空，成为死桥——记忆能力由 `dsh-hindsight-memory` 接替） |
 
 ## 不可公开安装的条目
 
@@ -271,10 +271,10 @@ Office 文档、表格、演示稿与视频创作能力。
 
 | 校验项 | 覆盖范围 | 手段 |
 | --- | --- | --- |
-| 仓库地址可达 | **全部 34 条** | GitHub API 实测存在、非 404、未归档；同步记录许可证与 star |
-| 安装命令来源 | **全部 34 条** | 逐字取自上游仓库 README / 源码原文，不改写、不自造 |
-| 发布资产可下载 | tarball 类条目 | 实测 HTTP 200、42195 字节；解包后 `lib/` 相对 import 无悬空、`cordis.patch.yml` 在包内 |
-| 真机装成并注册 bundle | 部分条目 | `dsh-qa-skills`（隔离 profile）、`omp-memory-dsh`（**全新空 profile 从零下载安装**）——均确认进入 `dsh.profile.bundles` |
+| 仓库地址可达 | **全部 34 条** | GitHub API 实测存在、非 404、未归档；同步记录许可证与 star（`omp-memory-dsh` 已于 2026-10-22 删除仓库，其条目标记为 `repoStatus: deleted`） |
+| 安装命令来源 | **全部 34 条** | 逐字取自上游仓库 README / 源码原文，不改写、不自造（已下架条目的命令保留原文并标注失效） |
+| 发布资产可下载 | tarball 类条目 | 实测 HTTP 200、42195 字节；解包后 `lib/` 相对 import 无悬空、`cordis.patch.yml` 在包内（`omp-memory-dsh` 的资产随仓库删除而失效） |
+| 真机装成并注册 bundle | 部分条目 | `dsh-qa-skills`（隔离 profile）、`omp-memory-dsh`（**全新空 profile 从零下载安装**；该插件现已从 profile 卸载并下架）——均确认进入 `dsh.profile.bundles` |
 
 > 其余条目**未逐条实装**：npm registry 类包的包体可下载性由 registry 保证，本仓库不重复下载全部 34 个包体。
 

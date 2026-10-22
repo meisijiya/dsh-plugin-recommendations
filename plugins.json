@@ -16,8 +16,8 @@
       "verificationLevels": {
         "repoReachable": "全部 34 条：GitHub API 实测仓库存在、非 404、未归档。",
         "installCommandSource": "全部 34 条：安装命令逐字取自上游仓库 README 或源码原文。",
-        "releaseAssetDownloaded": "仅 tarball 类条目（omp-memory-dsh）：实测 HTTP 200、42195 字节、解包后 lib/ 相对 import 无悬空、cordis.patch.yml 在包内。npm registry 类条目的包体可下载性由 registry 保证，未逐个重下。",
-        "realInstall": "已实机装成并验证注册进 dsh.profile.bundles：dsh-qa-skills（web 外的隔离 profile）、omp-memory-dsh（全新空 profile，从零下载安装）。其余条目未逐条实装。"
+        "releaseAssetDownloaded": "仅 tarball 类条目（omp-memory-dsh）：当时实测 HTTP 200、42195 字节、解包后 lib/ 相对 import 无悬空、cordis.patch.yml 在包内；该仓库已于 2026-10-22 下架删除（见该条目的 retiredNote）。npm registry 类条目的包体可下载性由 registry 保证，未逐个重下。",
+        "realInstall": "已实机装成并验证注册进 dsh.profile.bundles：dsh-qa-skills（web 外的隔离 profile）、omp-memory-dsh（全新空 profile，从零下载安装；该插件现已从 profile 卸载并下架仓库）。其余条目未逐条实装。"
       }
     },
     "presets": [
@@ -648,15 +648,17 @@
       "package": "omp-memory-dsh",
       "version": "0.2.0",
       "repo": "https://github.com/meisijiya/omp-memory-dsh",
+      "repoStatus": "deleted",
+      "retiredNote": "⛔ 已下架（2026-10-22）：GitHub 仓库已删除，安装命令与 release 资产均已失效，仅作历史记录保留，不要安装。原因：omp 侧已切到 Hindsight 原生后端，不再写本地 learned.md，该插件的读路径恒为空（死桥），记忆能力由 dsh-hindsight-memory 接替（同一 bank、同一标签语义）。本地工作副本保留在 D:\\26code\\随便问问\\omp-memory-dsh 仅作参考。",
       "license": "MIT",
       "stars": 0,
       "category": "integration",
-      "description": "DSH 侧适配 omp 的项目级记忆：跨 agent 共享 lessons，零删除红线。",
-      "upstreamInstall": "dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz",
-      "upstreamInstallFromSource": "dsh plugin --profile {profile} add github:meisijiya/omp-memory-dsh",
-      "installNotes": "上游推荐预构建 tarball（无需本地构建），或用 github: 源码安装（会跑 prepare 自动构建）。已实测：v0.2.0 release 资产 omp-memory-dsh-0.2.0.tgz 可下载（42195 字节，HTTP 200），解包后 lib/ 6 个 JS 模块的相对 import 全部可解析、cordis.patch.yml 在包内；该包未发布到 npm（npm view 返回 404），故只能走 tarball 或 github: 方式。",
+      "description": "（已下架）DSH 侧适配 omp 的项目级记忆：跨 agent 共享 lessons，零删除红线。omp 改用 Hindsight 后此插件成为死桥，已从 profile 卸载并删除远程仓库。",
+      "upstreamInstall": "已失效：dsh plugin --profile {profile} add https://github.com/meisijiya/omp-memory-dsh/releases/download/v0.2.0/omp-memory-dsh-0.2.0.tgz（仓库已删除）",
+      "upstreamInstallFromSource": "已失效：dsh plugin --profile {profile} add github:meisijiya/omp-memory-dsh（仓库已删除）",
+      "installNotes": "⛔ 不可安装。历史实测记录：v0.2.0 release 资产 omp-memory-dsh-0.2.0.tgz 当时可下载（42195 字节，HTTP 200），解包后 lib/ 6 个 JS 模块的相对 import 全部可解析、cordis.patch.yml 在包内；该包未发布到 npm。2026-10-22 远程仓库已删除，上述资产与命令一并失效。替代方案：安装 dsh-hindsight-memory（与 omp 共享同一个 Hindsight bank，标签语义一致）。",
       "selfDeveloped": true,
-      "selfDevelopedNote": "本仓库维护者自研插件，非第三方收录；安装命令同样取自其自身仓库 README 原文。",
+      "selfDevelopedNote": "本仓库维护者自研插件，非第三方收录；安装命令同样取自其自身仓库 README 原文（仓库已删除，命令失效）。",
       "bundle": true,
       "clientPlatform": null
     },
