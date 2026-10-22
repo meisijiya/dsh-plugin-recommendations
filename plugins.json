@@ -25,74 +25,144 @@
         "id": "market",
         "name": "市场与入口",
         "description": "先把插件市场装上，后面所有插件都能在里面图形化安装。",
-        "pluginIds": ["dshmarket", "d-prompt", "mattpocock-skills-deck"]
+        "pluginIds": [
+          "dshmarket",
+          "d-prompt",
+          "mattpocock-skills-deck"
+        ]
       },
       {
         "id": "shell",
         "name": "界面与外壳",
         "description": "改变 DSH Web 观感与操作方式的一组插件。",
-        "pluginIds": ["better-sidebar", "client-ui-git-graph", "codex-ui", "genui"]
+        "pluginIds": [
+          "better-sidebar",
+          "client-ui-git-graph",
+          "codex-ui",
+          "genui"
+        ]
       },
       {
         "id": "orchestration",
         "name": "多智能体协作",
         "description": "团队协作、专家智能体与 Agent 预设。",
-        "pluginIds": ["agent-teams", "agency-agents", "clearai"]
+        "pluginIds": [
+          "agent-teams",
+          "agency-agents",
+          "clearai"
+        ]
       },
       {
         "id": "dev",
         "name": "开发效率",
         "description": "代码审查、简化、上下文治理、任务回退与归档。",
-        "pluginIds": ["code-review", "simplify", "context", "rewind", "archive-manager", "btw", "automation"]
+        "pluginIds": [
+          "code-review",
+          "simplify",
+          "context",
+          "rewind",
+          "archive-manager",
+          "btw",
+          "automation"
+        ]
       },
       {
         "id": "skills",
         "name": "技能与提示词",
         "description": "以 Skill / Prompt 形式交付的方法论资产。",
-        "pluginIds": ["skills-manager", "qa-skills", "archify", "lunheng"]
+        "pluginIds": [
+          "skills-manager",
+          "qa-skills",
+          "archify",
+          "lunheng"
+        ]
       },
       {
         "id": "tooling",
         "name": "工具与运行时",
         "description": "文件 / Shell / 终端等底层执行能力。",
-        "pluginIds": ["ops"]
+        "pluginIds": [
+          "ops"
+        ]
       },
       {
         "id": "office",
         "name": "办公与多媒体",
         "description": "Office 文档、表格、演示稿与视频。",
-        "pluginIds": ["univer-office", "remotion"]
+        "pluginIds": [
+          "univer-office",
+          "remotion"
+        ]
       },
       {
         "id": "search",
         "name": "联网搜索",
         "description": "让 Agent 能查全网、读网页。",
-        "pluginIds": ["modsearch"]
+        "pluginIds": [
+          "modsearch"
+        ]
       },
       {
         "id": "integration",
         "name": "外部集成",
         "description": "浏览器、IM、模型来源、跨 Agent 记忆。",
-        "pluginIds": ["browser-skill", "im-connect", "opencode2dsh", "workbuddy-connect", "subusage", "pocket", "omp-memory", "clawd-bridge"]
+        "pluginIds": [
+          "browser-skill",
+          "im-connect",
+          "opencode2dsh",
+          "workbuddy-connect",
+          "subusage",
+          "pocket",
+          "omp-memory",
+          "clawd-bridge"
+        ]
       },
       {
         "id": "safety",
         "name": "安全闸门",
         "description": "危险命令与敏感文件访问的拦截。",
-        "pluginIds": ["cc-safety-net"]
+        "pluginIds": [
+          "cc-safety-net"
+        ]
       },
       {
         "id": "public-full",
         "name": "全部可公开安装的插件",
         "description": "除私有条目（clawd-bridge）外的全部插件。",
         "pluginIds": [
-          "dshmarket", "d-prompt", "mattpocock-skills-deck", "better-sidebar",
-          "client-ui-git-graph", "codex-ui", "genui", "agent-teams", "agency-agents",
-          "clearai", "code-review", "simplify", "context", "rewind", "archive-manager",
-          "btw", "automation", "skills-manager", "qa-skills", "archify", "lunheng",
-          "ops", "univer-office", "remotion", "modsearch", "browser-skill",
-          "im-connect", "opencode2dsh", "workbuddy-connect", "subusage", "pocket",
-          "cc-safety-net", "omp-memory"
+          "dshmarket",
+          "d-prompt",
+          "mattpocock-skills-deck",
+          "better-sidebar",
+          "client-ui-git-graph",
+          "codex-ui",
+          "genui",
+          "agent-teams",
+          "agency-agents",
+          "clearai",
+          "code-review",
+          "simplify",
+          "context",
+          "rewind",
+          "archive-manager",
+          "btw",
+          "automation",
+          "skills-manager",
+          "qa-skills",
+          "archify",
+          "lunheng",
+          "ops",
+          "univer-office",
+          "remotion",
+          "modsearch",
+          "browser-skill",
+          "im-connect",
+          "opencode2dsh",
+          "workbuddy-connect",
+          "subusage",
+          "pocket",
+          "cc-safety-net",
+          "omp-memory"
         ]
       }
     ]
@@ -649,7 +719,7 @@
       "version": "0.2.0",
       "repo": "https://github.com/meisijiya/omp-memory-dsh",
       "repoStatus": "deleted",
-      "retiredNote": "⛔ 已下架（2026-10-22）：GitHub 仓库已删除，安装命令与 release 资产均已失效，仅作历史记录保留，不要安装。原因：omp 侧已切到 Hindsight 原生后端，不再写本地 learned.md，该插件的读路径恒为空（死桥），记忆能力由 dsh-hindsight-memory 接替（同一 bank、同一标签语义）。本地工作副本保留在 D:\\26code\\随便问问\\omp-memory-dsh 仅作参考。",
+      "retiredNote": "⛔ 已下架（2026-10-22，由用户手动删除）：GitHub 仓库已删除，安装命令与 release 资产均已失效，仅作历史记录保留，不要安装。原因：omp 侧已切到 Hindsight 原生后端，不再写本地 learned.md，该插件的读路径恒为空（死桥），记忆能力由 dsh-hindsight-memory 接替（同一 bank、同一标签语义）。本地工作副本保留在 D:\\26code\\随便问问\\omp-memory-dsh 仅作参考。",
       "license": "MIT",
       "stars": 0,
       "category": "integration",
